@@ -10,7 +10,7 @@ RUN export POSTGIS_VERSION=2.4.4+dfsg-4.pgdg90+1 && \
     postgresql-${PG_MAJOR}-pgaudit=1.3.0-2.pgdg90+1 \
     postgresql-${PG_MAJOR}-postgis-${POSTGIS_MAJOR}=$POSTGIS_VERSION \
     postgresql-${PG_MAJOR}-postgis-${POSTGIS_MAJOR}-scripts=$POSTGIS_VERSION \
-    postgresql-server-dev-${PG_MAJOR} && \
+    postgresql-server-dev-${PG_MAJOR} \
     gcc \
     python-dev \
     openssh-server \
