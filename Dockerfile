@@ -1,4 +1,7 @@
-FROM postgres:10
+FROM postgres:10 AS orig
+
+FROM scratch AS postgres
+COPY --from=orig / /
 
 ENV PG_MAJOR=10
 
@@ -26,5 +29,3 @@ RUN export POSTGIS_VERSION=2.4.4+dfsg-4.pgdg90+1 && \
 
 RUN pip install --no-cache-dir 'shinto-cli>=0.5.0,<1' 'pgxnclient>=1.2.1,<1.3' 'dumb-init>=1.2.2,<1.3' 'supervisor-stdout>=0.1.1,<0.2'
 RUN /usr/local/bin/pgxn install pg_qualstats
-
-
