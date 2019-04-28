@@ -4,6 +4,9 @@ FROM scratch AS postgres
 COPY --from=orig / /
 
 ENV PG_MAJOR=10
+ENV LANG en_US.utf8
+ENV PATH $PATH:/usr/lib/postgresql/$PG_MAJOR/bin
+ENV PGDATA /var/lib/postgresql/data
 
 RUN export POSTGIS_VERSION=2.4.4+dfsg-4.pgdg90+1 && \
     export POSTGIS_MAJOR=2.4 && \
